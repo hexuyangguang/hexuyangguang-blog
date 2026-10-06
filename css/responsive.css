@@ -1,0 +1,182 @@
+/* ============================================================
+ * 响应式适配
+ * 断点：1024px（侧边栏堆叠） / 768px（移动端导航） / 480px（小屏）
+ * ============================================================ */
+
+/* 移动端专用的搜索框默认隐藏，只在 <=767px 的下拉菜单里出现，
+ * 否则桌面端会同时显示导航栏右侧和菜单里两个搜索框 */
+.nav-search-mobile {
+  display: none;
+}
+
+/* ===== 大屏：首页启用侧边栏双栏 ===== */
+@media (min-width: 1024px) {
+  .home-layout {
+    grid-template-columns: 1fr 280px;
+    align-items: start;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-6));
+  }
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding: var(--space-10) var(--space-8);
+  }
+}
+
+/* ===== 中屏 ===== */
+@media (max-width: 1023px) {
+  .nav-center {
+    margin-left: var(--space-6);
+  }
+
+  .nav-search-input {
+    width: 160px;
+  }
+
+  .nav-search-input:focus {
+    width: 200px;
+  }
+}
+
+/* ===== 移动端导航 ===== */
+@media (max-width: 767px) {
+  .nav-container {
+    padding: 0 var(--space-4);
+  }
+
+  .nav-tagline {
+    display: none;
+  }
+
+  .nav-brand {
+    font-size: var(--text-lg);
+  }
+
+  .nav-mobile-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  /* 导航项收进下拉面板 */
+  .nav-center {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    height: auto;
+    margin-left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: linear-gradient(to bottom, var(--nav-mid), var(--nav-to));
+    border-bottom: 1px solid var(--nav-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    padding: var(--space-2) var(--space-4) var(--space-4);
+    display: none;
+  }
+
+  .nav-center.open {
+    display: flex;
+  }
+
+  .nav-link {
+    height: auto;
+    padding: var(--space-3) var(--space-2);
+    border-bottom: 1px solid var(--nav-border);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link.active {
+    border-bottom-color: var(--nav-border);
+    color: var(--color-accent);
+  }
+
+  /* 搜索框移到菜单上方，占满宽度 */
+  .nav-right {
+    margin-left: auto;
+  }
+
+  .nav-search {
+    display: none;
+  }
+
+  .nav-center .nav-search-mobile {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--space-2);
+  }
+
+  .nav-center .nav-search-mobile .nav-search-input {
+    width: 100%;
+  }
+
+  .main-content {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .card {
+    padding: var(--space-4) var(--space-5);
+  }
+
+  .article-detail {
+    padding: var(--space-6) var(--space-4);
+    border-radius: var(--border-radius);
+  }
+
+  .article-content table {
+    font-size: var(--text-xs);
+  }
+
+  .card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .back-to-top {
+    right: var(--space-4);
+    bottom: var(--space-4);
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer {
+    padding: var(--space-8) var(--space-4);
+  }
+}
+
+/* ===== 小屏 ===== */
+@media (max-width: 480px) {
+  .article-title {
+    font-size: var(--text-2xl);
+  }
+
+  .article-content h2 {
+    font-size: var(--text-xl);
+  }
+
+  .article-content h3 {
+    font-size: var(--text-lg);
+  }
+
+  .article-content pre code,
+  .article-content pre code.hljs {
+    font-size: 12px;
+  }
+
+  .author-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-heading-left {
+    font-size: var(--text-base);
+  }
+}

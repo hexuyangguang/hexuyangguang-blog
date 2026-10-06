@@ -1,0 +1,19 @@
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 部署产物
+*.zip
+dist/
+build/
+
+# 日志与临时文件
+*.log
+*.tmp

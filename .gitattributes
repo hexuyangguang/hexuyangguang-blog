@@ -1,0 +1,17 @@
+# 仓库内统一使用 LF 行尾。
+# 不加这条的话，Windows 上提交会把行尾转成 CRLF，
+# 与其他平台协作时会产生大量无意义的行尾差异。
+* text=auto eol=lf
+
+# 二进制文件不做行尾转换
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.zip  binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+*.eot  binary
